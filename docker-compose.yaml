@@ -32,7 +32,6 @@ x-airflow-common: &airflow-common
     MY_PG_HOST: "${MY_PG_HOST}"
     MY_PG_PORT: "${MY_PG_PORT}"
     MY_PG_DB: "${MY_PG_DB}"
-    GOOGLE_APPLICATION_CREDENTIALS: "/opt/airflow/keys/baseballrschedulerkey.json"
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
@@ -67,8 +66,8 @@ services:
   my_postgres:
     image: postgres:15
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+      POSTGRES_USER: ${MY_PG_USER}
+      POSTGRES_PASSWORD: ${MY_PG_PASSWORD}
       POSTGRES_DB: baseballr_db
     volumes:
       - "./project-db-data-postgres15:/var/lib/postgresql/data:rw"
