@@ -335,7 +335,7 @@ def add_surrogate_keys_to_fact(date_str: str):
             season_to_date_fact.num_sf,
             season_to_date_fact.num_ibb,
             season_to_date_fact.season,
-            season_to_date_fact.as_of_date
+            season_to_date_fact.as_of_date::DATE
         FROM season_to_date_fact
         JOIN people_dim
             ON people_dim.source_id = season_to_date_fact.batter_source_id
@@ -389,7 +389,7 @@ def add_surrogate_keys_to_team_games_fact(date_str: str):
             teams_dim.team_sk,
             team_season_to_date_fact.season,
             team_season_to_date_fact.gp,
-            team_season_to_date_fact.as_of_date
+            team_season_to_date_fact.as_of_date::DATE
         FROM team_season_to_date_fact
         JOIN teams_dim
             ON teams_dim.team_full_name = team_season_to_date_fact.team_full_name;
