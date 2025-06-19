@@ -16,7 +16,7 @@ dag = DAG(
     'run_MINORS_baseballr_etl_pipeline_daily',
     default_args=default_args,
     description='Run an R script every day at 10AM',
-    schedule_interval='0 14 * * *', #None
+    schedule_interval=None, #'0 14 * * *', 
     start_date=datetime(2025, 6, 17),
     catchup=False,
     tags=['rscript'],

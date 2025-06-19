@@ -205,7 +205,7 @@ dag = DAG(
     'run_tweetpy_script',
     default_args=default_args,
     description='Run python script to tweet triple crown watch every day at 11 am',
-    schedule_interval='0 15 * * *', #None
+    schedule_interval=None, #'0 15 * * *', #
     start_date=datetime(2025, 6, 18),
     catchup=False
 )
